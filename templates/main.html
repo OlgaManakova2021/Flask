@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Прогноз по зарплате</title>
+    <style>
+      body {
+            margin: 10px;
+            padding: 20px;
+            color: rgb(247, 236, 236);
+            background-color: #112d49;
+        }
+
+        .form {
+            font-size: 22px;
+            color: #5590cc;
+        }
+
+        .div_result {
+            text-align: center;
+            font-size: 50px;
+            }
+
+        .button {
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease 0s;
+            padding: 0px 16px;
+            background-color: rgb(231, 231, 0);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+      .link {
+          text-align: right;
+          font-size: 20px;
+      }
+
+      .input {
+          height: 30px;
+          font-size: 16px;
+      }
+    </style>
+</head>
+<body>
+    <div class="link">
+      <a style="color: #7c9f24" href="/">На главную</a>
+    </div>
+
+   <div class="form">
+    <form action="{{url_for('main')}}" method="post">
+      <fieldset>
+        <legend>Введите значение</legend>
+        Ваш опыт: <input class="input" name="experience" type="number" required>
+        <br>
+        <br>
+        <input class="button" type="submit">
+      </fieldset>
+     </form>
+    </div>
+
+<div class="div_result">
+  {% if result %}
+    <br>
+    <p>Ваша прогнозная зарплата</p>
+    <p>{{result}} рублей</p>
+  {% endif %}
+</div>
+</body>
+</html>
