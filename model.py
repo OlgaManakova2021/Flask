@@ -12,13 +12,11 @@ y = np.array(salary)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     test_size=0.2,
-                                                    shuffle=True,
                                                     random_state=42)
 
 lr = LinearRegression()
 lr.fit(X_train, y_train)
 y_pred = lr.predict(X_test)
 
-pickle.dump(lr, open('lr_model.pkl', 'wb'))
-model_load = pickle.load(open('lr_model.pkl', 'rb'))
-model_load.predict(X_test)
+with open('lr_model.pkl', 'wb') as f:
+    pickle.dump(lr, f)

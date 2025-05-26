@@ -52,7 +52,7 @@ def main():
         exp = float(flask.request.form['experience'])
         y_pred = loaded_model.predict([[exp]])
 
-        return render_template("main.html", result = int(y_pred[0]))
+        return render_template("main.html", result = int((y_pred[0])))
 
 
 if __name__ == "__main__":
